@@ -1,0 +1,96 @@
+{
+    "name"                  : "larawise/larawise",
+    "type"                  : "project",
+    "description"           : "Skeleton - Comprehensive ready-to-go skeleton for the Laravel framework.",
+    "keywords"              : [],
+    "license"               : "MIT",
+    "homepage"              : "https://larawise.com/",
+
+    "authors"               : [{
+        "name"            : "Selçuk Çukur",
+        "email"           : "hk@selcukcukur.com.tr",
+        "homepage"        : "https://selcukcukur.com.tr"
+    }],
+
+    "support"               : {
+        "source"          : "https://github.com/larawise/larawise",
+        "issues"          : "https://github.com/larawise/larawise/issues",
+        "docs"            : "https://docs.larawise.com/"
+    },
+
+    "require"               : {
+        "php"                              : "^8.2|^8.3|^8.4",
+        "laravel/framework"                : "^11.31"
+        "laravel/tinker"                   : "^2.9"
+    },
+    "require-dev"           : {
+        "fakerphp/faker"                    : "^1.23",
+        "laravel/pail"                      : "^1.1",
+        "laravel/pint"                      : "^1.13",
+        "laravel/sail"                      : "^1.26",
+        "mockery/mockery"                   : "^1.6",
+        "nunomaduro/collision"              : "^8.1",
+        "phpunit/phpunit"                   : "^11.0.1"
+    },
+
+    "autoload"              : {
+        "psr-4"     : {
+            "App\\"                  : "app/",
+            "Database\\Factories\\"  : "database/factories/",
+            "Database\\Seeders\\"    : "database/seeders/"
+        }
+    },
+    "autoload-dev"          : {
+        "psr-4"     : {
+            "Larawise\\Tests\\"      : "tests/"
+        }
+    },
+
+    "scripts"               : {
+        "post-autoload-dump"        : ["Illuminate\\Foundation\\ComposerScripts::postAutoloadDump", "@php sevenity package:discover --ansi"],
+        "post-update-cmd"           : ["@php sevenity vendor:publish --tag=larawise-assets --ansi --force"],
+        "post-root-package-install" : ["@php -r \"file_exists('.env') || copy('.env.example', '.env');\""],
+        "post-create-project-cmd"   : ["@php sevenity key:generate --ansi"],
+        "dev"                       : ["Composer\\Config::disableProcessTimeout", "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php sevenity serve\" \"php sevenity queue:listen --tries=1\" \"php sevenity pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite"]
+    },
+
+    "extra"                 : {
+        "laravel"         : {
+            "dont-discover"     : []
+        },
+        "merge-plugin"    : {
+            "include"           : [
+                "./resources/plugins/*/composer.json",
+                "./resources/themes/*/composer.json",
+                "./system/*/composer.json",
+            ],
+            "recurse"           : false,
+            "replace"           : false,
+            "ignore-duplicates" : false,
+            "merge-dev"         : false,
+            "merge-extra"       : false,
+            "merge-extra-deep"  : false,
+            "merge-scripts"     : false
+        }
+    },
+
+    "config"                : {
+        "optimize-autoloader"   : true,
+        "preferred-install"     : "dist",
+        "sort-packages"         : true,
+        "allow-plugins"         : {
+            "pestphp/pest-plugin"               : true,
+            "php-http/discovery"                : true,
+            "wikimedia/composer-merge-plugin"   : true
+        }
+    },
+
+    "minimum-stability"     : "dev",
+    "prefer-stable"         : true,
+    "repositories"          : [
+        {
+            "type": "path",
+            "url": "./system/*"
+        }
+    ]
+}
