@@ -2,10 +2,6 @@
 
 namespace Larawise\Contracts;
 
-use Closure;
-use Illuminate\Contracts\Container\Container;
-use InvalidArgumentException;
-
 /**
  * Srylius - The ultimate symphony for technology architecture!
  *
@@ -19,5 +15,5 @@ use InvalidArgumentException;
  */
 interface DriverContract
 {
-
+    // ...
 }
