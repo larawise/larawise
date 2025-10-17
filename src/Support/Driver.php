@@ -15,7 +15,7 @@ use Larawise\Support\Traits\Encryptable;
  *
  * @package     Larawise
  * @subpackage  Core
- * @version     v0.0.1
+ * @version     v1.0.0
  * @author      Selçuk Çukur <hk@selcukcukur.com.tr>
  * @copyright   Srylius Teknoloji Limited Şirketi
  *
