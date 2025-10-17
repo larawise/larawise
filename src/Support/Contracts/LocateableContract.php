@@ -53,6 +53,13 @@ interface LocateableContract
     public function forgetNamespace($namespace);
 
     /**
+     * Get the current delimiter used for namespace resolution.
+     *
+     * @return string
+     */
+    public function getDelimiter();
+
+    /**
      * Get all registered namespace hints.
      *
      * @return array<string, array>
@@ -112,6 +119,15 @@ interface LocateableContract
      * @return void
      */
     public function replaceNamespace($namespace, $hints);
+
+    /**
+     * Set the delimiter used for namespace resolution.
+     *
+     * @param string $delimiter
+     *
+     * @return $this
+     */
+    public function setDelimiter($delimiter);
 
     /**
      * Replace all namespace hints with the given set.

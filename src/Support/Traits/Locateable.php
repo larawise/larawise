@@ -124,6 +124,16 @@ trait Locateable
     }
 
     /**
+     * Get the current delimiter used for namespace resolution.
+     *
+     * @return string
+     */
+    public function getDelimiter()
+    {
+        return $this->delimiter;
+    }
+
+    /**
      * Get the list of registered file extensions.
      *
      * @return string[]
@@ -281,6 +291,20 @@ trait Locateable
     protected function resolvePath($path)
     {
         return realpath($path) ?: $path;
+    }
+
+    /**
+     * Set the delimiter used for namespace resolution.
+     *
+     * @param string $delimiter
+     *
+     * @return $this
+     */
+    public function setDelimiter($delimiter)
+    {
+        $this->delimiter = $delimiter;
+
+        return $this;
     }
 
     /**
