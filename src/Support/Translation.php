@@ -5,6 +5,7 @@ namespace Larawise\Support;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\ForwardsCalls;
 use JsonSerializable;
+use Larawise\Support\Contracts\TranslateableContract;
 use Stringable;
 
 /**
@@ -18,7 +19,7 @@ use Stringable;
  *
  * @see https://docs.larawise.com/ Larawise : Docs
  */
-class Translation implements JsonSerializable, Stringable
+class Translation implements TranslateableContract, JsonSerializable, Stringable
 {
     use ForwardsCalls;
 
