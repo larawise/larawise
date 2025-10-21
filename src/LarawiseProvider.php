@@ -36,6 +36,7 @@ class LarawiseProvider extends PackagifyProvider
         // Configure the package description.
         $package->description('Larawise - The most powerful, elegant, and productive way to develop your next Laravel application.');
 
+        $package->hasHelpers();
         $package->hasConfigurations();
 
         $package->hasTranslations();
